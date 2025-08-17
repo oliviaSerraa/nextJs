@@ -9,10 +9,10 @@ import Input from "../componentes/Input";
 export default function Contador(){
 
     const [cuenta, setCuenta] = useState(0)
-    const [nombre, setNombre] = useState("")
+    const [checked, setChecked] = useState(false)
 
     useEffect(() => {
-        if (cuenta == 13){
+        if (cuenta == 20 || cuenta == -20){
             setCuenta(0)
         }
     }, [cuenta])
@@ -25,14 +25,28 @@ export default function Contador(){
         setCuenta(cuenta - 1)
     }
 
-    function check(){
+    function ver(event) {
+        console.log(event.target.checked)
+        setChecked(event.target.checked)
     }
+
+    function check(){
+        if(checked == true){
+            incrementar()
+        } else if(checked == false){
+            disminuir()
+        }
+    }
+
 
     return(
         <>
             <Title title="Contador"></Title>
+            <h3>Contador: {cuenta}</h3>
+            <Button text={"subir/bajar"} onClick={check}></Button>
+            <h3>si el checkbox está marcado INCREMENTA, si no está marcado DISMINUYE</h3>
             <Input type={"checkbox"} onChange={ver}></Input>
-            <Button text={"subir/bajar"}></Button>
+            
         </>
     )
 }

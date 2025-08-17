@@ -1,32 +1,42 @@
 "use client"
 
 import Form from "@/app/componentes/Form"
+import { useState } from "react";
 
 export default function Login() {
 
-    function cambio1() {
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const [mail, setMail] = useState("")
+
+    function cambio1(event) {
         console.log("cambio en el username")
+        setUsername(event.target.value)
     }
 
-    function cambio2() {
+    function cambio2(event) {
         console.log("cambio en el mail")
+        setMail(event.target.value)
     }
     
-    function cambio3() {
+    function cambio3(event) {
         console.log("cambio en la contraseña")
+        setPassword(event.target.value)
     }
-
 
     function imprimir1(){
         console.log("username guardado")
+        console.log(username)
     }
 
     function imprimir2(){
         console.log("mail guardado")
+        console.log(mail)
     }
 
     function imprimir3(){
         console.log("contraseña guardada")
+        console.log(password)
     }
 
     return (
