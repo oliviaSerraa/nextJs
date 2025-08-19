@@ -38,12 +38,16 @@ export default function Contador(){
         }
     }
 
+    function cambioCheck(event){
+        setChecked(event.target.checked);
+        setColor(event.target.checked == true ? "verde" : "rojo")
+    }
 
     return(
         <>
             <Title title="Contador"></Title>
             <h3>Contador: {cuenta}</h3>
-            <Button text={"subir/bajar"} onClick={check}></Button>
+            <Button text={"subir/bajar"} onClick={check} className=""></Button>
             <h3>si el checkbox está marcado INCREMENTA, si no está marcado DISMINUYE</h3>
             <Input type={"checkbox"} onChange={ver}></Input>
             
